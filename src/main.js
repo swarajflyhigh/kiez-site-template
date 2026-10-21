@@ -232,3 +232,79 @@ if (dateInput) {
   dateInput.min = today;
   if (!dateInput.value) dateInput.value = today;
 }
+
+/* 12. Motion: smooth scroll (Lenis) and springs (Motion) ----------- */
+/* Both off under prefers-reduced-motion; the CSS reveals above still run reduced. */
+
+import Lenis from 'lenis';
+import { animate, inView, scroll, spring } from 'motion';
+
+if (!reduceMotion) {
+  /* Smooth scroll, with anchor links routed through it so the header offset is kept. */
+  const lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 0.95, touchMultiplier: 1.4 });
+  const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+  requestAnimationFrame(raf);
+  doc.querySelectorAll('a[href^="#"]').forEach((a) => {
+    const target = a.getAttribute('href');
+    if (target === '#' || !doc.querySelector(target)) return;
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -72, duration: 1.1, easing: (x) => 1 - Math.pow(1 - x, 4) });
+      history.replaceState(null, '', target);
+    });
+  });
+
+  /* Load: hero copy settles in with a spring, one element after the other. */
+  const heroBits = [...doc.querySelectorAll('.hero-copy [data-reveal]')];
+  heroBits.forEach((el) => el.classList.add('is-in', 'motion-owned'));
+  animate(
+    heroBits,
+    { opacity: [0, 1], transform: ['translateY(18px)', 'translateY(0px)'] },
+    { delay: (i) => 0.08 + i * 0.07, type: spring, duration: 0.7, bounce: 0.18 },
+  );
+
+  /* Hero photo: a touch of parallax while it scrolls off, transform only. */
+  const heroPhoto = doc.querySelector('.hero-photo img');
+  if (heroPhoto) {
+    scroll(animate(heroPhoto, { transform: ['translateY(0px)', 'translateY(60px)'] }, { ease: 'linear' }),
+           { target: doc.querySelector('.hero'), offset: ['start start', 'end start'] });
+  }
+
+  /* Order cards: stagger in once, then spring on press and release. */
+  inView('.order-grid', ({ target }) => {
+    animate(
+      target.querySelectorAll('.order-card'),
+      { opacity: [0, 1], transform: ['translateY(16px) scale(0.98)', 'translateY(0px) scale(1)'] },
+      { delay: (i) => i * 0.08, type: spring, duration: 0.6, bounce: 0.2 },
+    );
+  }, { amount: 0.3 });
+
+  const press = (el) => {
+    const down = () => animate(el, { transform: 'scale(0.97)' }, { duration: 0.1 });
+    const up = () => animate(el, { transform: 'scale(1)' }, { type: spring, duration: 0.4, bounce: 0.3 });
+    el.addEventListener('pointerdown', down);
+    el.addEventListener('pointerup', up);
+    el.addEventListener('pointercancel', up);
+    el.addEventListener('pointerleave', up);
+  };
+  doc.querySelectorAll('.order-card, .button').forEach(press);
+
+  /* Sticky bar: spring in and out instead of the CSS slide. */
+  if (sticky) {
+    sticky.classList.add('motion-owned');
+    let shown = false;
+    new IntersectionObserver(([entry]) => {
+      const next = !entry.isIntersecting;
+      if (next === shown) return;
+      shown = next;
+      animate(sticky, { transform: next ? 'translateY(0%)' : 'translateY(110%)' },
+              { type: spring, duration: next ? 0.55 : 0.35, bounce: next ? 0.22 : 0 });
+    }, { threshold: 0.2 }).observe(hero);
+  }
+
+  /* Status pill: pops in once the hours are known. */
+  const pillEl = doc.querySelector('[data-status]');
+  if (pillEl && !pillEl.hidden) {
+    animate(pillEl, { opacity: [0, 1], transform: ['scale(0.92)', 'scale(1)'] }, { type: spring, duration: 0.5, bounce: 0.25, delay: 0.4 });
+  }
+}

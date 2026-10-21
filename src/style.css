@@ -340,7 +340,7 @@ em {
     color 150ms var(--ease);
 }
 
-.button:active {
+html:not(.js) .button:active {
   transform: scale(0.97);
 }
 
@@ -1068,7 +1068,7 @@ em {
   text-decoration: none;
   transition: transform 0.25s var(--ease-out), border-color 0.25s var(--ease);
 }
-.order-card:active { transform: scale(0.98); }
+html:not(.js) .order-card:active { transform: scale(0.98); }
 .order-emoji { font-size: 28px; line-height: 1; }
 .order-title { font-weight: 600; }
 .order-desc { color: var(--ink-3); font-size: 14px; }
@@ -1111,3 +1111,8 @@ em {
   .form-row, .form-row:has(> :nth-child(3)) { grid-template-columns: 1fr; }
   body { padding-bottom: 72px; }
 }
+
+/* Motion-owned elements: the CSS reveal steps aside, Motion drives the transform. */
+.js .motion-owned, .js .motion-owned.is-in { transition: none; }
+.js .sticky-bar.motion-owned { transform: translateY(110%); }
+.js .order-card { will-change: transform; }
