@@ -16,4 +16,4 @@ npm run dev
 npm run build
 ```
 
-Based on the croissanterie template.
+Built as a reusable template: swap name, hours, menu, photos and the WhatsApp number per shop.

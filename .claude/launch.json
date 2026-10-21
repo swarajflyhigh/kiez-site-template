@@ -1,1 +1,0 @@
-{"version":"0.0.1","configurations":[{"name":"kiez-demo","runtimeExecutable":"npx","runtimeArgs":["vite","preview","--port","4178","--strictPort"],"port":4178}]}
