@@ -1,6 +1,7 @@
 /* Kiez Café demo: progressive enhancement only.
    Everything below adds motion or live data. The page reads fine without it. */
 
+window.__kiez = 1; /* the 4 s no-JS fallback in index.html checks this */
 const doc = document;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -40,7 +41,7 @@ if (header && sentinel && 'IntersectionObserver' in window) {
 
 const navLinks = [...doc.querySelectorAll('.nav a, .mobile-menu a')];
 const spied = [...new Set(navLinks.map((a) => a.getAttribute('href')))]
-  .map((href) => doc.querySelector(href))
+  .map((href) => (href && href.length > 1 ? doc.querySelector(href) : null))
   .filter(Boolean);
 
 if (spied.length && 'IntersectionObserver' in window) {
@@ -178,8 +179,8 @@ doc.querySelectorAll('[data-photo]').forEach((figure) => {
   if (!img) return;
   const ok = () => figure.classList.add('has-img');
   const fail = () => img.remove();
-  if (img.complete && img.naturalWidth > 0) {
-    ok();
+  if (img.complete) {
+    img.naturalWidth > 0 ? ok() : fail();
   } else {
     img.addEventListener('load', ok, { once: true });
     img.addEventListener('error', fail, { once: true });
@@ -228,7 +229,7 @@ if (sticky && hero && 'IntersectionObserver' in window) {
 
 const dateInput = doc.querySelector('.reserve-form input[type="date"]');
 if (dateInput) {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Berlin' }).format(new Date());
   dateInput.min = today;
   if (!dateInput.value) dateInput.value = today;
 }
@@ -239,7 +240,7 @@ if (dateInput) {
 import Lenis from 'lenis';
 import { animate, inView, scroll, spring } from 'motion';
 
-if (!reduceMotion) {
+if (!reduceMotion && 'IntersectionObserver' in window) {
   /* Smooth scroll, with anchor links routed through it so the header offset is kept. */
   const lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 0.95, touchMultiplier: 1.4 });
   const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
@@ -251,6 +252,7 @@ if (!reduceMotion) {
       e.preventDefault();
       lenis.scrollTo(target, { offset: -72, duration: 1.1, easing: (x) => 1 - Math.pow(1 - x, 4) });
       history.replaceState(null, '', target);
+      if (target === '#main') doc.querySelector(target).focus({ preventScroll: true });
     });
   });
 
@@ -271,6 +273,7 @@ if (!reduceMotion) {
   }
 
   /* Order cards: stagger in once, then spring on press and release. */
+  doc.querySelectorAll('.order-card').forEach((c) => (c.style.opacity = '0'));
   inView('.order-grid', ({ target }) => {
     animate(
       target.querySelectorAll('.order-card'),
@@ -290,7 +293,7 @@ if (!reduceMotion) {
   doc.querySelectorAll('.order-card, .button').forEach(press);
 
   /* Sticky bar: spring in and out instead of the CSS slide. */
-  if (sticky) {
+  if (sticky && hero) {
     sticky.classList.add('motion-owned');
     let shown = false;
     new IntersectionObserver(([entry]) => {

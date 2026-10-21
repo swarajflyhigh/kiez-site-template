@@ -11,7 +11,7 @@
   --bg-2: #fdfbf7;
   --ink: #1c1917;
   --ink-2: #5b554d;
-  --ink-3: #8b8479;
+  --ink-3: #6f695f;
   --line: rgba(28, 25, 23, 0.08);
   --line-strong: rgba(28, 25, 23, 0.16);
   --accent: #c19a4a;
@@ -42,6 +42,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 16px);
+  scroll-padding-bottom: 88px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -242,7 +243,7 @@ em {
 .menu-button {
   display: none;
   align-items: center;
-  height: 34px;
+  height: 44px;
   padding: 0 14px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
@@ -812,7 +813,7 @@ html:not(.js) .button:active {
 }
 
 .hours div.is-today dt::after {
-  content: "Today";
+  content: "Heute";
   margin-left: 8px;
   font-size: 10.5px;
   font-weight: 600;
@@ -1075,16 +1076,18 @@ html:not(.js) .order-card:active { transform: scale(0.98); }
 
 .reserve-form { display: grid; gap: 14px; max-width: 560px; }
 .reserve-form label { display: grid; gap: 6px; font-size: 14px; color: var(--ink-2); }
-.reserve-form input, .reserve-form textarea {
+.reserve-form input, .reserve-form textarea, .reserve-form select {
   font: inherit;
+  font-size: 16px;
   padding: 12px 14px;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--ink-3);
   border-radius: 10px;
   background: var(--bg-2);
   color: var(--ink);
   min-height: 46px;
 }
-.reserve-form input:focus, .reserve-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.reserve-form :is(input, textarea, select):focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.reserve-form :is(input, textarea, select):user-invalid { border-color: #b3261e; border-width: 2px; }
 .form-row { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
 .form-row:has(> :nth-child(3)) { grid-template-columns: 1.2fr 1fr 0.8fr; }
 .form-note { color: var(--ink-3); font-size: 14px; margin: 0; }
@@ -1101,10 +1104,11 @@ html:not(.js) .order-card:active { transform: scale(0.98); }
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--line);
   transform: translateY(110%);
-  transition: transform 0.35s var(--ease-out);
+  visibility: hidden;
+  transition: transform 0.35s var(--ease-out), visibility 0s linear 0.35s;
   z-index: 40;
 }
-.sticky-bar.is-visible { transform: none; }
+.sticky-bar.is-visible { transform: none; visibility: visible; transition-delay: 0s; }
 .sticky-bar .button { flex: 1; justify-content: center; }
 @media (min-width: 721px) { .sticky-bar { display: none; } }
 @media (max-width: 720px) {
@@ -1116,3 +1120,8 @@ html:not(.js) .order-card:active { transform: scale(0.98); }
 .js .motion-owned, .js .motion-owned.is-in { transition: none; }
 .js .sticky-bar.motion-owned { transform: translateY(110%); }
 .js .order-card { will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-bar, .order-card { transition: opacity 0.2s ease; }
+  .js .sticky-bar.motion-owned { transform: none; }
+}
