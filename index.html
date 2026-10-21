@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <script>document.documentElement.classList.add("js");</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Demo: eine Café-Website für Neukölln mit WhatsApp-Vorbestellung, Tischreservierung und Öffnungsstatus. Gebaut von Swaraj, Neukölln." />
+    <meta name="theme-color" content="#f7f3ec" />
+    <meta property="og:title" content="Kiez Café, Neukölln (Demo)" />
+    <meta property="og:description" content="Vorbestellen per WhatsApp, Tisch reservieren, immer wissen ob offen ist." />
+    <meta property="og:type" content="website" />
+    <title>Kiez Café, Neukölln (Demo)</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231c1917'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,Times,serif' font-style='italic' font-size='42' fill='%23f7f3ec'%3EK%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Zum Inhalt</a>
+
+    <div class="nav-sentinel" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="wordmark" href="#top" aria-label="Kiez Café, nach oben">Kiez Café</a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#about">Über uns</a>
+          <a href="#menu">Karte</a>
+          <a href="#order">Vorbestellen</a>
+          <a href="#visit">Besuch</a>
+        </nav>
+
+        <div class="header-right">
+          <span class="status" data-status hidden>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-text"></span>
+            <span class="status-short"></span>
+          </span>
+          <button
+            class="menu-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            data-menu-button
+          >
+            <span data-menu-label>Menü</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <a href="#about">Über uns</a>
+        <a href="#menu">Karte</a>
+        <a href="#order">Vorbestellen</a>
+        <a href="#visit">Besuch</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow" data-reveal style="--i: 0">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              Weserstraße, Neukölln · Demo
+            </p>
+            <h1 class="display" data-reveal style="--i: 1">Kiez Café</h1>
+            <p class="tagline" data-reveal style="--i: 2">
+              Guter Kaffee, frische Kuchen, und <em>kein Anruf nötig</em>.
+            </p>
+            <p class="lede" data-reveal style="--i: 3">
+              Vorbestellen per WhatsApp, Tisch reservieren mit zwei Fingertipps, und die Seite
+              weiß immer, ob gerade offen ist. So könnte eure Website aussehen.
+            </p>
+            <div class="hero-actions" data-reveal style="--i: 4">
+              <a class="button button-primary" href="#order">Per WhatsApp vorbestellen</a>
+              <a class="button button-ghost" href="#reserve">Tisch reservieren</a>
+            </div>
+            <dl class="hero-facts" data-reveal style="--i: 5">
+              <div><dt>Heute</dt><dd data-hours-summary>Di bis So</dd></div>
+              <div><dt>Vorbestellung</dt><dd>WhatsApp</dd></div>
+              <div><dt>Reservierung</dt><dd>Online</dd></div>
+            </dl>
+          </div>
+
+          <figure class="photo hero-photo" data-tone="butter" data-photo data-clip style="--i: 3">
+            <img
+              src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1400&q=80"
+              alt="Kuchen und Kaffee auf dem Tresen"
+              width="1400"
+              height="1750"
+              fetchpriority="high"
+            />
+            <figcaption>Der Tresen, 8:00</figcaption>
+            <span class="photo-cover" aria-hidden="true"></span>
+            </figure>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="section about" id="about">
+        <div class="container section-grid">
+          <div class="section-label" data-reveal>
+            <span class="index">01</span>
+            <span>Über uns</span>
+          </div>
+          <div class="section-body">
+            <h2 class="heading" data-reveal>
+              Ein kleines Café, <em>ohne Telefonstress</em>.
+            </h2>
+            <div class="prose">
+              <p data-reveal style="--i: 1">
+                Dies ist eine Demo-Seite. Sie zeigt, was eine kleine Café-Website in Neukölln
+                heute können sollte: Gäste bestellen Kuchen oder Boxen per WhatsApp vor, reservieren
+                einen Tisch ohne anzurufen, und sehen sofort, ob ihr gerade geöffnet habt.
+              </p>
+              <p data-reveal style="--i: 2">
+                Keine App, kein Abo, kein Login. Eine Seite, die auf jedem Handy läuft, mit euren
+                Fotos, eurer Karte und euren Öffnungszeiten. Eingerichtet in ein paar Tagen, für die
+                ersten drei Läden im Kiez diesen Monat kostenlos.
+              </p>
+            </div>
+            <dl class="facts" data-reveal style="--i: 3">
+              <div><dt>Vorbestellen</dt><dd>WhatsApp, ein Tipp</dd></div>
+              <div><dt>Reservieren</dt><dd>Formular, keine Anrufe</dd></div>
+              <div><dt>Öffnungszeiten</dt><dd>Live auf der Seite</dd></div>
+              <div><dt>Kosten</dt><dd>Keine laufenden Gebühren</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu -->
+      <section class="section menu" id="menu">
+        <div class="container section-grid">
+          <div class="section-label" data-reveal>
+            <span class="index">02</span>
+            <span>Karte</span>
+          </div>
+          <div class="section-body">
+            <h2 class="heading" data-reveal>
+              Was heute <em>auf dem Tresen</em> steht.
+            </h2>
+            <p class="section-intro" data-reveal style="--i: 1">
+              Eine kurze Karte, täglich frisch. Was ausverkauft ist, gibt es morgen wieder.
+            </p>
+
+            <div class="menu-groups">
+              <section class="menu-group" data-reveal style="--i: 2" aria-labelledby="m-croissants">
+                <div class="menu-group-head">
+                  <h3 id="m-croissants">Gebäck</h3>
+                  <figure class="photo photo-small" data-tone="crust" data-photo>
+                    <img
+                      src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=600&q=80"
+                      alt="Gebäck auf einem Teller"
+                      loading="lazy"
+                      width="600"
+                      height="450"
+                    />
+                    <figcaption>Gebäck</figcaption>
+                  </figure>
+                </div>
+                <ul class="menu-list">
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Butter-Croissant</span>
+                      <span class="item-desc">Frisch aus dem Ofen, jeden Morgen.</span>
+                    </div>
+                    <span class="item-price">2,80 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Zimtschnecke</span>
+                      <span class="item-desc">Weich, warm, mit Zuckerguss.</span>
+                    </div>
+                    <span class="item-price">3,20 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Franzbrötchen</span>
+                      <span class="item-desc">Hamburger Art, mit Zimt und Butter.</span>
+                    </div>
+                    <span class="item-price">3,90 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Käse-Laugenstange</span>
+                      <span class="item-desc">Mit Bergkäse überbacken.</span>
+                    </div>
+                    <span class="item-price">5,50 €</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="menu-group" data-reveal style="--i: 3" aria-labelledby="m-pastries">
+                <div class="menu-group-head">
+                  <h3 id="m-pastries">Kuchen</h3>
+                  <figure class="photo photo-small" data-tone="terracotta" data-photo>
+                    <img
+                      src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=600&q=80"
+                      alt="Ein Stück Kuchen"
+                      loading="lazy"
+                      width="600"
+                      height="450"
+                    />
+                    <figcaption>Kuchen</figcaption>
+                  </figure>
+                </div>
+                <ul class="menu-list">
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Käsekuchen</span>
+                      <span class="item-desc">Cremig, nach Omas Rezept.</span>
+                    </div>
+                    <span class="item-price">4,20 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Apfelkuchen</span>
+                      <span class="item-desc">Mit Streuseln, Äpfel aus Brandenburg.</span>
+                    </div>
+                    <span class="item-price">5,80 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Carrot Cake</span>
+                      <span class="item-desc">Mit Frischkäse-Frosting.</span>
+                    </div>
+                    <span class="item-price">5,20 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Cookie</span>
+                      <span class="item-desc">Groß, weich, Schokolade.</span>
+                    </div>
+                    <span class="item-price">2,60 €</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="menu-group" data-reveal style="--i: 4" aria-labelledby="m-coffee">
+                <div class="menu-group-head">
+                  <h3 id="m-coffee">Kaffee</h3>
+                  <figure class="photo photo-small" data-tone="coffee" data-photo>
+                    <img
+                      src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80"
+                      alt="Ein Flat White mit Latte Art"
+                      loading="lazy"
+                      width="600"
+                      height="450"
+                    />
+                    <figcaption>Kaffee</figcaption>
+                  </figure>
+                </div>
+                <ul class="menu-list">
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Espresso</span>
+                      <span class="item-desc">Aus Neukölln geröstet.</span>
+                    </div>
+                    <span class="item-price">2,40 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Flat White</span>
+                      <span class="item-desc">Doppelter Shot, samtige Milch.</span>
+                    </div>
+                    <span class="item-price">3,80 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Cappuccino</span>
+                      <span class="item-desc">Klassisch, mit Hafermilch ohne Aufpreis.</span>
+                    </div>
+                    <span class="item-price">3,40 €</span>
+                  </li>
+                  <li>
+                    <div class="item-text">
+                      <span class="item-name">Filterkaffee</span>
+                      <span class="item-desc">Wechselnde Röstung.</span>
+                    </div>
+                    <span class="item-price">4,00 €</span>
+                  </li>
+                </ul>
+              </section>
+            </div>
+
+            <p class="menu-note" data-reveal style="--i: 5">
+              Ganze Kuchen und Gebäck-Boxen zum Abholen: einfach unten per WhatsApp vorbestellen,
+              ein Tag Vorlauf reicht.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vorbestellen -->
+      <section class="section order" id="order">
+        <div class="container section-grid">
+          <div class="section-label" data-reveal>
+            <span class="index">03</span>
+            <span>Vorbestellen</span>
+          </div>
+          <div class="section-body">
+            <h2 class="heading" data-reveal>Vorbestellen, <em>ohne anzurufen</em>.</h2>
+            <p class="section-intro" data-reveal style="--i: 1">
+              Kuchen, Boxen oder einfach den Kaffee für unterwegs. Tipp auf einen Vorschlag, die
+              Nachricht ist schon fertig, du musst nur noch senden.
+            </p>
+            <div class="order-grid" data-reveal style="--i: 2">
+              <a class="order-card" data-wa="Hallo! Ich würde gern einen ganzen Kuchen zum Abholen vorbestellen. Welche Sorten habt ihr diese Woche?" href="#">
+                <span class="order-emoji" aria-hidden="true">🎂</span>
+                <span class="order-title">Ganzer Kuchen</span>
+                <span class="order-desc">Ein Tag Vorlauf</span>
+              </a>
+              <a class="order-card" data-wa="Hallo! Ich hätte gern eine Gebäck-Box für 6 Personen zum Abholen. Geht das morgen früh?" href="#">
+                <span class="order-emoji" aria-hidden="true">🥐</span>
+                <span class="order-title">Gebäck-Box</span>
+                <span class="order-desc">Für Büro und Brunch</span>
+              </a>
+              <a class="order-card" data-wa="Hallo! Zwei Cappuccino und zwei Zimtschnecken zum Mitnehmen, ich bin in 10 Minuten da." href="#">
+                <span class="order-emoji" aria-hidden="true">☕</span>
+                <span class="order-title">Kaffee to go</span>
+                <span class="order-desc">Steht bereit, wenn du kommst</span>
+              </a>
+            </div>
+            <p class="menu-note" data-reveal style="--i: 3">
+              Die Nachricht geht direkt an euer Geschäfts-WhatsApp. Kein Konto, keine Gebühren,
+              keine fremde App dazwischen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reservieren -->
+      <section class="section reserve" id="reserve">
+        <div class="container section-grid">
+          <div class="section-label" data-reveal>
+            <span class="index">04</span>
+            <span>Reservieren</span>
+          </div>
+          <div class="section-body">
+            <h2 class="heading" data-reveal>Tisch reservieren in <em>zwanzig Sekunden</em>.</h2>
+            <form class="reserve-form" name="reservierung" method="POST" data-netlify="true" netlify-honeypot="website" data-reveal style="--i: 1">
+              <input type="hidden" name="form-name" value="reservierung" />
+              <p class="hp"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></p>
+              <div class="form-row">
+                <label>Name<input type="text" name="name" required autocomplete="name" /></label>
+                <label>Handy<input type="tel" name="telefon" required autocomplete="tel" inputmode="tel" /></label>
+              </div>
+              <div class="form-row">
+                <label>Tag<input type="date" name="tag" required /></label>
+                <label>Uhrzeit<input type="time" name="uhrzeit" required step="900" /></label>
+                <label>Personen<input type="number" name="personen" min="1" max="12" value="2" required inputmode="numeric" /></label>
+              </div>
+              <label>Wunsch (optional)<textarea name="wunsch" rows="2" placeholder="Fensterplatz, Kinderstuhl, Geburtstag…"></textarea></label>
+              <button class="button button-primary" type="submit">Reservierung anfragen</button>
+              <p class="form-note">Ihr bekommt die Anfrage per E-Mail und bestätigt mit einem Klick. Kein Anruf, kein Zettel.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visit -->
+      <section class="section visit" id="visit">
+        <div class="container section-grid">
+          <div class="section-label" data-reveal>
+            <span class="index">05</span>
+            <span>Besuch</span>
+          </div>
+          <div class="section-body">
+            <h2 class="heading" data-reveal>Ihr findet uns auf der <em>Weserstraße</em>.</h2>
+
+            <div class="visit-grid">
+              <div class="visit-block" data-reveal style="--i: 1">
+                <h3>Adresse</h3>
+                <address>
+                  Kiez Café (Demo)<br />
+                  Weserstraße 100<br />
+                  12045 Berlin, Neukölln
+                </address>
+                <a
+                  class="text-link"
+                  href="https://www.google.com/maps/search/?api=1&query=Weserstra%C3%9Fe%20100%2C%2012045%20Berlin"
+                  target="_blank"
+                  rel="noopener"
+                  >In Google Maps öffnen</a
+                >
+              </div>
+
+              <div class="visit-block" data-reveal style="--i: 2">
+                <h3>Öffnungszeiten</h3>
+                <dl class="hours" data-hours>
+                  <div data-day="1"><dt>Montag</dt><dd>Geschlossen</dd></div>
+                  <div data-day="2"><dt>Dienstag</dt><dd>7:30 bis 18:00</dd></div>
+                  <div data-day="3"><dt>Mittwoch</dt><dd>7:30 bis 18:00</dd></div>
+                  <div data-day="4"><dt>Donnerstag</dt><dd>7:30 bis 18:00</dd></div>
+                  <div data-day="5"><dt>Freitag</dt><dd>7:30 bis 18:00</dd></div>
+                  <div data-day="6"><dt>Samstag</dt><dd>8:30 bis 17:00</dd></div>
+                  <div data-day="0"><dt>Sonntag</dt><dd>8:30 bis 16:00</dd></div>
+                </dl>
+              </div>
+
+              <div class="visit-block" data-reveal style="--i: 3">
+                <h3>Kontakt</h3>
+                <p class="contact-lines">
+                  <a class="text-link" data-wa="Hallo! Ich habe eine Frage." href="#">WhatsApp schreiben</a>
+                  <a class="text-link" href="mailto:hallo@beispiel-cafe.de">hallo@beispiel-cafe.de</a>
+                  <a class="text-link" href="#">@kiezcafe (Platzhalter)</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="map" data-map data-clip>
+            <iframe
+              title="Karte: Weserstraße, Neukölln"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=13.4230%2C52.4840%2C13.4360%2C52.4905&amp;layer=mapnik&amp;marker=52.4872%2C13.4295"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <span class="photo-cover" aria-hidden="true"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="sticky-bar" data-sticky>
+      <a class="button button-primary" data-wa="Hallo! Ich möchte etwas vorbestellen." href="#">WhatsApp</a>
+      <a class="button button-ghost" href="#reserve">Reservieren</a>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-mark">Kiez Café</p>
+        <p class="footer-line">Demo-Seite. Gebaut von Swaraj in Neukölln. Impressum und Datenschutz kommen mit eurem Laden.</p>
+        <p class="footer-meta">
+          <span>Weserstraße 100, 12045 Berlin</span>
+          <span>&copy; <span data-year>2026</span></span>
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
