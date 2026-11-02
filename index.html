@@ -14,12 +14,8 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231c1917'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,Times,serif' font-style='italic' font-size='42' fill='%23f7f3ec'%3EK%3C/text%3E%3C/svg%3E"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="/fonts/Inter-Latin-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/InstrumentSerif-Latin-Italic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
@@ -316,17 +312,17 @@
               Nachricht ist schon fertig, du musst nur noch senden.
             </p>
             <div class="order-grid" data-reveal style="--i: 2">
-              <a class="order-card" data-wa="Hallo! Ich würde gern einen ganzen Kuchen zum Abholen vorbestellen. Welche Sorten habt ihr diese Woche?" href="mailto:hallo@beispiel-cafe.de?subject=Anfrage">
+              <a class="order-card" data-wa="Hallo! Ich würde gern einen ganzen Kuchen zum Abholen vorbestellen. Welche Sorten habt ihr diese Woche?" href="https://wa.me/491700000000?text=Hallo%21%20Ich%20w%C3%BCrde%20gern%20einen%20ganzen%20Kuchen%20zum%20Abholen%20vorbestellen.%20Welche%20Sorten%20habt%20ihr%20diese%20Woche%3F" target="_blank" rel="noopener">
                 <span class="order-emoji" aria-hidden="true">🎂</span>
                 <span class="order-title">Ganzer Kuchen</span>
                 <span class="order-desc">Ein Tag Vorlauf</span>
               </a>
-              <a class="order-card" data-wa="Hallo! Ich hätte gern eine Gebäck-Box für 6 Personen zum Abholen. Geht das morgen früh?" href="mailto:hallo@beispiel-cafe.de?subject=Anfrage">
+              <a class="order-card" data-wa="Hallo! Ich hätte gern eine Gebäck-Box für 6 Personen zum Abholen. Geht das morgen früh?" href="https://wa.me/491700000000?text=Hallo%21%20Ich%20h%C3%A4tte%20gern%20eine%20Geb%C3%A4ck-Box%20f%C3%BCr%206%20Personen%20zum%20Abholen.%20Geht%20das%20morgen%20fr%C3%BCh%3F" target="_blank" rel="noopener">
                 <span class="order-emoji" aria-hidden="true">🥐</span>
                 <span class="order-title">Gebäck-Box</span>
                 <span class="order-desc">Für Büro und Brunch</span>
               </a>
-              <a class="order-card" data-wa="Hallo! Zwei Cappuccino und zwei Zimtschnecken zum Mitnehmen, ich bin in 10 Minuten da." href="mailto:hallo@beispiel-cafe.de?subject=Anfrage">
+              <a class="order-card" data-wa="Hallo! Zwei Cappuccino und zwei Zimtschnecken zum Mitnehmen, ich bin in 10 Minuten da." href="https://wa.me/491700000000?text=Hallo%21%20Zwei%20Cappuccino%20und%20zwei%20Zimtschnecken%20zum%20Mitnehmen%2C%20ich%20bin%20in%2010%20Minuten%20da." target="_blank" rel="noopener">
                 <span class="order-emoji" aria-hidden="true">☕</span>
                 <span class="order-title">Kaffee to go</span>
                 <span class="order-desc">Steht bereit, wenn du kommst</span>
@@ -412,7 +408,7 @@
               <div class="visit-block" data-reveal style="--i: 3">
                 <h3>Kontakt</h3>
                 <p class="contact-lines">
-                  <a class="text-link" data-wa="Hallo! Ich habe eine Frage." href="mailto:hallo@beispiel-cafe.de?subject=Anfrage">WhatsApp schreiben</a>
+                  <a class="text-link" data-wa="Hallo! Ich habe eine Frage." href="https://wa.me/491700000000?text=Hallo%21%20Ich%20habe%20eine%20Frage." target="_blank" rel="noopener">WhatsApp schreiben</a>
                   <a class="text-link" href="mailto:hallo@beispiel-cafe.de">hallo@beispiel-cafe.de</a>
                   <span class="text-link" aria-disabled="true">@kiezcafe (Platzhalter)</span>
                 </p>
@@ -436,18 +432,19 @@
     </main>
 
     <div class="sticky-bar" data-sticky>
-      <a class="button button-primary" data-wa="Hallo! Ich möchte etwas vorbestellen." href="mailto:hallo@beispiel-cafe.de?subject=Anfrage">WhatsApp</a>
+      <a class="button button-primary" data-wa="Hallo! Ich möchte etwas vorbestellen." href="https://wa.me/491700000000?text=Hallo%21%20Ich%20m%C3%B6chte%20etwas%20vorbestellen." target="_blank" rel="noopener">WhatsApp</a>
       <a class="button button-ghost" href="#reserve">Reservieren</a>
     </div>
 
     <footer class="site-footer">
       <div class="container footer-inner">
         <p class="footer-mark">Kiez Café</p>
-        <p class="footer-line">Demo-Seite. Gebaut von Swaraj in Neukölln. Impressum und Datenschutz kommen mit eurem Laden.</p>
+        <p class="footer-line">Demo-Seite. Gebaut von Swaraj in Neukölln. Impressum und Datenschutz unten verlinkt.</p>
         <p class="footer-meta">
           <span>Weserstraße (Beispiel), 12045 Berlin</span>
           <span>&copy; <span data-year>2026</span></span>
         </p>
+        <p class="footer-legal"><a href="/impressum.html">Impressum</a> <a href="/datenschutz.html">Datenschutz</a></p>
       </div>
     </footer>
 

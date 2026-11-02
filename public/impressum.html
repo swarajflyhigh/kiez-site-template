@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Impressum, Kiez Café</title>
+<style>
+  @font-face { font-family:"Inter"; src:url("/fonts/Inter-Latin-Variable.woff2") format("woff2"); font-weight:100 900; font-display:swap; }
+  @font-face { font-family:"Instrument Serif"; src:url("/fonts/InstrumentSerif-Latin-Regular.woff2") format("woff2"); font-display:swap; }
+  :root { --bg:#f7f3ec; --ink:#1c1917; --ink-2:#5b554d; }
+  html { overflow-x:clip; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 Inter, system-ui, sans-serif; padding:40px 16px 64px; }
+  main { max-width:680px; margin:0 auto; }
+  h1 { font:400 44px/1.1 "Instrument Serif", Georgia, serif; margin:24px 0 24px; overflow-wrap:break-word; }
+  h2 { font-size:18px; font-weight:600; margin:32px 0 8px; }
+  p, li { color:var(--ink-2); }
+  a { color:var(--ink); text-underline-offset:3px; }
+  a:focus-visible { outline:2px solid var(--ink); outline-offset:3px; }
+</style>
+</head>
+<body>
+<main>
+  <a href="/">Zurück zur Seite</a>
+  <h1>Impressum</h1>
+  <p>Angaben nach § 5 Digitale-Dienste-Gesetz (DDG)</p>
+  <p>
+    <span data-f="name">Kiez Café</span><br />
+    Inhaber: <span data-f="owner">Vorname Nachname (Beispiel)</span><br />
+    <span data-f="street">Weserstraße 1 (Beispiel)</span><br />
+    <span data-f="postcode">12045</span> Berlin
+  </p>
+  <h2>Kontakt</h2>
+  <p>
+    Telefon: <span data-f="phone">030 0000000 (Beispiel)</span><br />
+    E-Mail: <span data-f="email">hallo@beispiel-cafe.de</span>
+  </p>
+  <h2>Umsatzsteuer</h2>
+  <p data-f="vat">Umsatzsteuer-Identifikationsnummer nach § 27a UStG: DE000000000 (Beispiel)</p>
+  <h2>Verbraucherstreitbeilegung</h2>
+  <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+</main>
+</body>
+</html>

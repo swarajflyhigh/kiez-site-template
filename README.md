@@ -6,9 +6,13 @@ Vite build, deploys to Netlify.
 What it shows: WhatsApp pre-order buttons with the message pre-written, a table reservation form
 (Netlify Forms, no backend), a live open/closed pill, the menu, hours and map.
 
-Per client: change `WHATSAPP_NUMBER` in `src/main.js`, the hours table in `src/main.js` and
-`index.html` (keep both in sync), the address, menu and photos. Images are Unsplash hotlinks for
-the demo only; use the shop's own photos for a real site.
+Per client: `python3 new_client.py client.json` (`--example` prints the fields). It writes the
+WhatsApp number into the `wa.me` links in the markup (they work without JavaScript), the hours,
+address, menu, and the Impressum and Datenschutz pages (`public/`, linked from every footer).
+Fonts are self-hosted from `public/fonts/` (SIL OFL, licence files next to them); nothing loads
+from Google. Images are Unsplash hotlinks for the demo only; use the shop's own photos, self-hosted,
+for a real site (the generator warns while any are left). The legal pages are a starting text, not
+legal advice: the owner checks them before going live.
 
 ```
 npm install

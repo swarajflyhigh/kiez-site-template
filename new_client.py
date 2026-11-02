@@ -31,6 +31,9 @@ EXAMPLE = {
     "lat": 52.4872, "lon": 13.4295,
     "whatsapp": "4915112345678",
     "email": "hallo@cafe-beispiel.de",
+    "owner": "Vorname Nachname",
+    "phone": "030 1234567",
+    "vat": "",
     "instagram": "cafebeispiel",
     "tagline": "Guter Kaffee, frische Kuchen, und <em>kein Anruf nötig</em>.",
     "lede": "Vorbestellen per WhatsApp, Tisch reservieren mit zwei Fingertipps, und immer sehen, ob wir gerade offen haben.",
@@ -82,7 +85,9 @@ def render(html: str, js: str, c: dict, brand: str, old_street: str) -> tuple[st
                       f"&amp;layer=mapnik&amp;marker={la:.4f}%2C{lo:.4f}", html)
     html = re.sub(r'<p class="footer-line">.*?</p>', f'<p class="footer-line">{name}, {street}, {pc} Berlin.</p>', html, flags=re.S)
     html = re.sub(r"(<p class=\"footer-meta\">\s*<span>)[^<]*(</span>)", lambda m: f"{m.group(1)}{street}, {pc} Berlin{m.group(2)}", html)
-    # contact lines
+    js = re.sub(r"const WHATSAPP_NUMBER = '\d+';", f"const WHATSAPP_NUMBER = '{c['whatsapp']}';", js)  # salon template
+    # contact lines; WhatsApp links are plain wa.me links in the markup, so they work without JS
+    html = html.replace("wa.me/491700000000", f"wa.me/{c['whatsapp']}")
     html = re.sub(r"hallo@beispiel-(cafe|salon)\.de", c.get("email", ""), html)
     if c.get("instagram"):
         html = re.sub(r'<span class="text-link" aria-disabled="true">@kiez\w+ \(Platzhalter\)</span>',
@@ -109,7 +114,6 @@ def render(html: str, js: str, c: dict, brand: str, old_street: str) -> tuple[st
         rows.append(f"  {i}: " + (f"[[{hm(v[0])[0]}, {hm(v[0])[1]}], [{hm(v[1])[0]}, {hm(v[1])[1]}]]," if v else "null,"))
     js = re.sub(r"const HOURS = \{.*?\n\};", "const HOURS = {\n" + "\n".join(rows) + "\n};", js, count=1, flags=re.S)
     js = js.replace(f"{brand} demo", f"{name} site")
-    js = re.sub(r"const WHATSAPP_NUMBER = '\d+';", f"const WHATSAPP_NUMBER = '{c['whatsapp']}';", js)
     # menu or price list, group by group in page order
     groups = c.get("menu", [])
     uls = list(re.finditer(r'<ul class="menu-list">.*?</ul>', html, flags=re.S))
@@ -127,6 +131,20 @@ def render(html: str, js: str, c: dict, brand: str, old_street: str) -> tuple[st
     return html, js
 
 
+def render_page(page: str, c: dict, brand: str) -> str:
+    """danke, impressum, datenschutz: brand name plus the data-f fields from client.json."""
+    page = page.replace(brand, c["name"])
+    fields = {"name": c["name"], "owner": c.get("owner", ""), "street": c["street"], "postcode": c["postcode"],
+              "phone": c.get("phone", ""), "email": c.get("email", "")}
+    for k, v in fields.items():
+        page = re.sub(rf'(<span data-f="{k}">)[^<]*(</span>)', lambda m: m.group(1) + v + m.group(2), page)
+    if c.get("vat"):
+        page = re.sub(r'(<p data-f="vat">)[^<]*(</p>)', lambda m: f"{m.group(1)}Umsatzsteuer-Identifikationsnummer nach § 27a UStG: {c['vat']}{m.group(2)}", page)
+    else:  # Kleinunternehmer without a USt-IdNr.
+        page = re.sub(r'\s*<h2>Umsatzsteuer</h2>\s*<p data-f="vat">[^<]*</p>', "", page)
+    return page
+
+
 def build(c: dict) -> Path:
     kind = c.get("type", "cafe")
     src = TEMPLATES[kind]
@@ -139,13 +157,21 @@ def build(c: dict) -> Path:
     html, js = render((out / "index.html").read_text(), (out / "src/main.js").read_text(), c, brand, old_street)
     (out / "index.html").write_text(html)
     (out / "src/main.js").write_text(js)
+    pages = ""
+    for f in ("danke.html", "impressum.html", "datenschutz.html"):
+        if (out / "public" / f).exists():
+            page = render_page((out / "public" / f).read_text(), c, brand)
+            (out / "public" / f).write_text(page)
+            pages += page
     (out / "client.json").write_text(json.dumps(c, ensure_ascii=False, indent=1))
     # reuse the template's pinned dependencies; without this `npx vite` would fetch a different vite
     (out / "node_modules").symlink_to(src / "node_modules")
     pkg = out / "package.json"
     pkg.write_text(re.sub(r'"name": "[^"]+"', f'"name": "{slug(c["name"])}"', pkg.read_text(), count=1))
-    left = [w for w in ("Kiez Café", "Kiez Salon", "(Demo)", "Demo-Seite", "491700000000", "beispiel-cafe", "beispiel-salon")
-            if w in html + js]
+    left = [w for w in ("Kiez Café", "Kiez Salon", "(Demo)", "Demo-Seite", "Demo:", "Swaraj", "491700000000",
+                        "beispiel-cafe", "beispiel-salon", "(Beispiel)", "unsplash", 'data-f="owner"></span>',
+                        'data-f="phone"></span>')
+            if w in html + js + pages]
     print(f"wrote {out}" + (f"\nstill in the page, edit by hand: {left}" if left else ""))
     return out
 

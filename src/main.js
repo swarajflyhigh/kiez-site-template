@@ -202,18 +202,6 @@ if (map) {
 const year = doc.querySelector('[data-year]');
 if (year) year.textContent = String(new Date().getFullYear());
 
-/* 9. WhatsApp pre-order links ------------------------------------- */
-
-/* One number per client. The demo uses a placeholder; the real number goes here. */
-const WHATSAPP_NUMBER = '491700000000';
-
-doc.querySelectorAll('[data-wa]').forEach((a) => {
-  const text = encodeURIComponent(a.dataset.wa);
-  a.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-  a.target = '_blank';
-  a.rel = 'noopener';
-});
-
 /* 10. Sticky bar hides while the hero is on screen ------------------ */
 
 const sticky = doc.querySelector('[data-sticky]');

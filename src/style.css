@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Latin-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/fonts/InstrumentSerif-Latin-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/fonts/InstrumentSerif-Latin-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ------------------------------------------------------------------
    Croissanterie
    Design tokens, base, components, motion.
@@ -879,6 +897,17 @@ html:not(.js) .button:active {
   margin-top: 18px;
   font-size: 12.5px;
   color: var(--ink-3);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+}
+
+.footer-legal a {
+  color: var(--ink-2);
+  text-underline-offset: 3px;
 }
 
 /* Motion ----------------------------------------------------------- */
