@@ -187,14 +187,20 @@ doc.querySelectorAll('[data-photo]').forEach((figure) => {
   }
 });
 
-/* 7. Map fades in once the embed has painted ------------------------ */
+/* 7. Map loads only after a click (no request to OpenStreetMap before) */
 
 const map = doc.querySelector('[data-map]');
-if (map) {
+const mapLoad = map?.querySelector('[data-map-load]');
+if (map && mapLoad) {
   const frame = map.querySelector('iframe');
-  const show = () => map.classList.add('is-loaded');
-  frame?.addEventListener('load', show, { once: true });
-  setTimeout(show, reduceMotion ? 0 : 4000);
+  mapLoad.addEventListener('click', (e) => {
+    e.preventDefault();
+    const show = () => map.classList.add('is-loaded');
+    frame.addEventListener('load', show, { once: true });
+    setTimeout(show, reduceMotion ? 0 : 4000);
+    frame.src = frame.dataset.src;
+    mapLoad.hidden = true;
+  });
 }
 
 /* 8. Footer year ---------------------------------------------------- */

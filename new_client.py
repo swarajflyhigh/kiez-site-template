@@ -80,6 +80,7 @@ def render(html: str, js: str, c: dict, brand: str, old_street: str) -> tuple[st
     html = re.sub(r'title="Karte: [^"]*"', f'title="Karte: {street}, {district}"', html)
     if c.get("lat") and c.get("lon"):
         la, lo = float(c["lat"]), float(c["lon"])
+        html = re.sub(r"mlat=[^&]+&amp;mlon=[^#]+#map=17/[^\"]+", f"mlat={la:.4f}&amp;mlon={lo:.4f}#map=17/{la:.4f}/{lo:.4f}", html)
         html = re.sub(r"bbox=[^&]+&amp;layer=mapnik&amp;marker=[^\"]+",
                       f"bbox={lo - .0065:.4f}%2C{la - .0032:.4f}%2C{lo + .0065:.4f}%2C{la + .0032:.4f}"
                       f"&amp;layer=mapnik&amp;marker={la:.4f}%2C{lo:.4f}", html)
