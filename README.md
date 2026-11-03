@@ -21,3 +21,9 @@ npm run build
 ```
 
 Built as a reusable template: swap name, hours, menu, photos and the WhatsApp number per shop.
+
+## Restaurant demos
+
+`demos/` holds three standalone restaurant demos with invented businesses (Italian, Vietnamese,
+Austrian cafe), German first with an English toggle, no libraries. `npm run build` includes them
+under `/demos/<slug>/`. How to swap in a real business: `demos/README.md`.

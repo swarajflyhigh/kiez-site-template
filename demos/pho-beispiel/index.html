@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="de" data-lang="de" data-title-en="Pho Beispiel, Vietnamese lunch in Neukoelln (demo)">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Pho Beispiel, vietnamesisch in Neukölln (Demo)</title>
+<meta name="description" content="Demo mit erfundenem Betrieb: vietnamesischer Imbiss in Neukölln, Mittagstisch, schnelle Karte, Öffnungszeiten, anrufen und abholen." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#fffdf6" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23c8361f'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='34' fill='%23fffdf6'%3EP%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="site.css" />
+<script>(function(h){var l='de';try{l=new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang')||'de'}catch(e){}h.setAttribute('data-lang',l==='en'?'en':'de');h.classList.add('js')})(document.documentElement)</script>
+</head>
+<body>
+<a class="skip" href="#main"><span lang="de">Zum Inhalt</span><span lang="en">Skip to content</span></a>
+
+<p class="demo-note">
+  <span lang="de">Demo mit erfundenem Betrieb. Name, Adresse, Nummern und Karte sind Platzhalter.</span>
+  <span lang="en">Demo with an invented restaurant. Name, address, numbers and menu are placeholders.</span>
+</p>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="#top">Pho <span>Beispiel</span></a>
+    <nav class="nav" aria-label="Navigation">
+      <a href="#karte"><span lang="de">Karte</span><span lang="en">Menu</span></a>
+      <a href="#mittag"><span lang="de">Mittagstisch</span><span lang="en">Lunch deal</span></a>
+      <a href="#besuch"><span lang="de">Zeiten und Anfahrt</span><span lang="en">Hours and map</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="lang" type="button" data-lang-toggle aria-label="Switch to English">EN</button>
+      <a class="btn btn-primary btn-small header-cta" href="tel:+493000000000"><span lang="de">Anrufen und abholen</span><span lang="en">Call and collect</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow"><span lang="de">Vietnamesische Küche, Neukölln</span><span lang="en">Vietnamese kitchen, Neukoelln</span></p>
+        <h1 class="display"><span lang="de">Phở in fünf Minuten.</span><span lang="en">Phở in five minutes.</span></h1>
+        <p class="tagline">
+          <span lang="de">Brühe, die zwölf Stunden zieht. Auf dem Tisch, bevor eure Mittagspause vorbei ist.</span>
+          <span lang="en">Broth that simmers for twelve hours. On your table before your lunch break is over.</span>
+        </p>
+        <div class="today-box">
+          <p class="today-label"><span lang="de">Heute</span><span lang="en">Today</span></p>
+          <p class="today-hours" data-today-hours>11:00 <span lang="de">bis</span><span lang="en">to</span> 22:00</p>
+          <p class="status" data-status hidden><span class="status-dot" aria-hidden="true"></span><span data-status-text></span></p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+493000000000">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></svg>
+            <span lang="de">Anrufen und abholen</span><span lang="en">Call and collect</span>
+          </a>
+          <a class="btn btn-ghost" href="#karte"><span lang="de">Zur Karte</span><span lang="en">See the menu</span></a>
+        </div>
+      </div>
+
+      <figure class="hero-art">
+        <svg viewBox="0 0 320 260" role="img" aria-label="Illustration: Schale Phở">
+          <g fill="none" stroke="#13201a" stroke-width="5" stroke-linecap="round" opacity="0.55">
+            <path d="M120 70c-12-16 12-26 0-44" /><path d="M160 64c-12-16 12-26 0-44" /><path d="M200 70c-12-16 12-26 0-44" />
+          </g>
+          <rect x="196" y="40" width="8" height="150" rx="4" transform="rotate(28 200 115)" fill="#7a4a24" />
+          <rect x="212" y="44" width="8" height="150" rx="4" transform="rotate(34 216 119)" fill="#8f5a2d" />
+          <ellipse cx="160" cy="118" rx="118" ry="24" fill="#f3e3c3" />
+          <ellipse cx="160" cy="118" rx="104" ry="17" fill="#e7b86a" />
+          <ellipse cx="128" cy="114" rx="22" ry="6" fill="#c8361f" />
+          <ellipse cx="186" cy="116" rx="18" ry="5" fill="#2f8f57" />
+          <ellipse cx="160" cy="112" rx="12" ry="4" fill="#fffdf6" />
+          <path d="M42 120c4 62 52 104 118 104s114-42 118-104z" fill="#fffdf6" />
+          <path d="M60 150h200" stroke="#c8361f" stroke-width="7" />
+          <path d="M70 168h180" stroke="#c8361f" stroke-width="3" stroke-dasharray="10 8" />
+          <rect x="118" y="222" width="84" height="14" rx="7" fill="#e9e1cf" />
+        </svg>
+        <figcaption class="art-label"><span lang="de">Platz für euer Foto</span><span lang="en">Your photo goes here</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section lunch" id="mittag">
+    <div class="container lunch-inner">
+      <div>
+        <p class="kicker"><span lang="de">Mittagstisch</span><span lang="en">Lunch deal</span></p>
+        <h2 class="heading"><span lang="de">Mo bis Fr, 11 bis 15 Uhr</span><span lang="en">Mon to Fri, 11 am to 3 pm</span></h2>
+        <p class="section-intro"><span lang="de">Jedes Phở oder Bún mit Getränk. Bestellt telefonisch vor, dann steht es fertig an der Theke.</span><span lang="en">Any phở or bún with a drink. Call ahead and it is ready at the counter.</span></p>
+      </div>
+      <p class="lunch-price">11,90 €</p>
+    </div>
+  </section>
+
+  <section class="section" id="karte">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker"><span lang="de">Karte</span><span lang="en">Menu</span></p>
+        <h2 class="heading"><span lang="de">Bestellt einfach mit der Nummer.</span><span lang="en">Just order by number.</span></h2>
+      </div>
+      <nav class="cat-nav" aria-label="Kategorien">
+        <a href="#k-vor"><span lang="de">Vorspeisen</span><span lang="en">Starters</span></a>
+        <a href="#k-pho">Phở</a>
+        <a href="#k-bun">Bún</a>
+        <a href="#k-banh">Bánh mì</a>
+        <a href="#k-drinks"><span lang="de">Getränke</span><span lang="en">Drinks</span></a>
+      </nav>
+      <div class="menu-groups">
+        <section class="menu-group" id="k-vor" aria-labelledby="h-vor">
+          <h3 id="h-vor"><span lang="de">Vorspeisen</span><span lang="en">Starters</span></h3>
+          <ul class="menu-list">
+            <li><div class="item-text"><span class="item-name"><span class="no">1</span>Gỏi cuốn <span class="tag tag-veg">vegan</span></span><span class="item-desc"><span lang="de">Sommerrollen, Kräuter, Tofu, Erdnusssauce</span><span lang="en">Summer rolls, herbs, tofu, peanut sauce</span></span></div><span class="item-price">5,90 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">2</span>Chả giò</span><span class="item-desc"><span lang="de">Knusprige Frühlingsrollen, Fischsauce zum Dippen</span><span lang="en">Crispy spring rolls, fish sauce dip</span></span></div><span class="item-price">5,50 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">3</span><span lang="de">Papayasalat</span><span lang="en">Papaya salad</span> <span class="tag tag-veg">vegan</span> <span class="tag tag-hot"><span lang="de">scharf</span><span lang="en">spicy</span></span></span><span class="item-desc"><span lang="de">Grüne Papaya, Minze, Erdnüsse, Limette</span><span lang="en">Green papaya, mint, peanuts, lime</span></span></div><span class="item-price">6,90 €</span></li>
+          </ul>
+        </section>
+        <section class="menu-group" id="k-pho" aria-labelledby="h-pho">
+          <h3 id="h-pho">Phở</h3>
+          <ul class="menu-list">
+            <li><div class="item-text"><span class="item-name"><span class="no">10</span>Phở Bò</span><span class="item-desc"><span lang="de">Rinderbrühe, Reisnudeln, Rindfleisch, Thai-Basilikum</span><span lang="en">Beef broth, rice noodles, beef, Thai basil</span></span></div><span class="item-price">13,50 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">11</span>Phở Gà</span><span class="item-desc"><span lang="de">Hühnerbrühe, Hähnchen, Frühlingszwiebeln</span><span lang="en">Chicken broth, chicken, spring onions</span></span></div><span class="item-price">12,90 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">12</span>Phở Chay <span class="tag tag-veg">vegan</span></span><span class="item-desc"><span lang="de">Gemüsebrühe, Tofu, Pilze</span><span lang="en">Vegetable broth, tofu, mushrooms</span></span></div><span class="item-price">12,50 €</span></li>
+          </ul>
+        </section>
+        <section class="menu-group" id="k-bun" aria-labelledby="h-bun">
+          <h3 id="h-bun">Bún</h3>
+          <ul class="menu-list">
+            <li><div class="item-text"><span class="item-name"><span class="no">20</span>Bún Bò Nam Bộ</span><span class="item-desc"><span lang="de">Lauwarme Reisnudeln, Rind, Kräuter, Erdnüsse</span><span lang="en">Warm rice noodles, beef, herbs, peanuts</span></span></div><span class="item-price">13,90 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">21</span>Bún Chả</span><span class="item-desc"><span lang="de">Gegrilltes Schwein, Kräuter, süße Fischsauce</span><span lang="en">Grilled pork, herbs, sweet fish sauce</span></span></div><span class="item-price">13,90 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">22</span>Bún Chay <span class="tag tag-veg">vegan</span> <span class="tag tag-hot"><span lang="de">scharf</span><span lang="en">spicy</span></span></span><span class="item-desc"><span lang="de">Tofu, Zitronengras, Chili, Kräuter</span><span lang="en">Tofu, lemongrass, chilli, herbs</span></span></div><span class="item-price">12,50 €</span></li>
+          </ul>
+        </section>
+        <section class="menu-group" id="k-banh" aria-labelledby="h-banh">
+          <h3 id="h-banh">Bánh mì</h3>
+          <ul class="menu-list">
+            <li><div class="item-text"><span class="item-name"><span class="no">30</span>Bánh mì Thịt</span><span class="item-desc"><span lang="de">Baguette, Schwein, Pickles, Koriander</span><span lang="en">Baguette, pork, pickles, coriander</span></span></div><span class="item-price">8,50 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">31</span>Bánh mì Gà</span><span class="item-desc"><span lang="de">Zitronengras-Hähnchen, Gurke, Chili-Mayo</span><span lang="en">Lemongrass chicken, cucumber, chilli mayo</span></span></div><span class="item-price">8,50 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">32</span>Bánh mì Chay <span class="tag tag-veg">vegan</span></span><span class="item-desc"><span lang="de">Tofu, Pickles, Koriander</span><span lang="en">Tofu, pickles, coriander</span></span></div><span class="item-price">7,90 €</span></li>
+          </ul>
+        </section>
+        <section class="menu-group" id="k-drinks" aria-labelledby="h-drinks">
+          <h3 id="h-drinks"><span lang="de">Getränke</span><span lang="en">Drinks</span></h3>
+          <ul class="menu-list">
+            <li><div class="item-text"><span class="item-name"><span class="no">40</span>Cà phê sữa đá</span><span class="item-desc"><span lang="de">Eiskaffee mit Kondensmilch</span><span lang="en">Iced coffee with condensed milk</span></span></div><span class="item-price">4,50 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">41</span><span lang="de">Limettenlimo</span><span lang="en">Lime soda</span></span><span class="item-desc"><span lang="de">Hausgemacht, mit Minze</span><span lang="en">Homemade, with mint</span></span></div><span class="item-price">3,90 €</span></li>
+            <li><div class="item-text"><span class="item-name"><span class="no">42</span><span lang="de">Jasmintee</span><span lang="en">Jasmine tea</span></span><span class="item-desc"><span lang="de">Die ganze Kanne</span><span lang="en">The whole pot</span></span></div><span class="item-price">3,50 €</span></li>
+          </ul>
+        </section>
+        <div class="order-card">
+          <p class="order-title"><span lang="de">Zum Abholen bestellen</span><span lang="en">Order for pickup</span></p>
+          <p class="order-text"><span lang="de">Anrufen oder per WhatsApp die Nummern schicken. In 15 Minuten fertig.</span><span lang="en">Call, or send the numbers on WhatsApp. Ready in 15 minutes.</span></p>
+          <div class="order-actions">
+            <a class="btn btn-primary" href="tel:+493000000000"><span lang="de">Anrufen</span><span lang="en">Call</span></a>
+            <a class="btn btn-ghost" data-wa="4915200000000" data-text-de="Hallo! Zum Abholen bitte: Nr. " data-text-en="Hello! For pickup please: No. " href="https://wa.me/4915200000000?text=Hallo%21%20Zum%20Abholen%20bitte%3A%20Nr.%20" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <p class="menu-note"><span lang="de">Allergene und Zusatzstoffe: bitte an der Theke fragen.</span><span lang="en">Allergens and additives: please ask at the counter.</span></p>
+    </div>
+  </section>
+
+  <section class="section" id="besuch">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker"><span lang="de">Zeiten und Anfahrt</span><span lang="en">Hours and map</span></p>
+        <h2 class="heading"><span lang="de">Jeden Tag geöffnet.</span><span lang="en">Open every day.</span></h2>
+      </div>
+      <div class="visit-grid">
+        <div>
+          <table class="hours" data-hours>
+            <caption class="sr-only"><span lang="de">Öffnungszeiten</span><span lang="en">Opening hours</span></caption>
+            <tr data-day="1" data-open="11:00" data-close="22:00"><th><span lang="de">Montag</span><span lang="en">Monday</span></th><td>11:00 <span lang="de">bis</span><span lang="en">to</span> 22:00</td></tr>
+            <tr data-day="2" data-open="11:00" data-close="22:00"><th><span lang="de">Dienstag</span><span lang="en">Tuesday</span></th><td>11:00 <span lang="de">bis</span><span lang="en">to</span> 22:00</td></tr>
+            <tr data-day="3" data-open="11:00" data-close="22:00"><th><span lang="de">Mittwoch</span><span lang="en">Wednesday</span></th><td>11:00 <span lang="de">bis</span><span lang="en">to</span> 22:00</td></tr>
+            <tr data-day="4" data-open="11:00" data-close="22:00"><th><span lang="de">Donnerstag</span><span lang="en">Thursday</span></th><td>11:00 <span lang="de">bis</span><span lang="en">to</span> 22:00</td></tr>
+            <tr data-day="5" data-open="11:00" data-close="22:00"><th><span lang="de">Freitag</span><span lang="en">Friday</span></th><td>11:00 <span lang="de">bis</span><span lang="en">to</span> 22:00</td></tr>
+            <tr data-day="6" data-open="12:00" data-close="22:00"><th><span lang="de">Samstag</span><span lang="en">Saturday</span></th><td>12:00 <span lang="de">bis</span><span lang="en">to</span> 22:00</td></tr>
+            <tr data-day="0" data-open="12:00" data-close="21:00"><th><span lang="de">Sonntag</span><span lang="en">Sunday</span></th><td>12:00 <span lang="de">bis</span><span lang="en">to</span> 21:00</td></tr>
+          </table>
+          <p class="hours-note"><span lang="de">Mittagstisch Montag bis Freitag, 11:00 bis 15:00.</span><span lang="en">Lunch deal Monday to Friday, 11:00 to 15:00.</span></p>
+        </div>
+        <div>
+          <div class="visit-block">
+            <h3><span lang="de">Adresse</span><span lang="en">Address</span></h3>
+            <address>Pho Beispiel<br />Musterweg 3 <span lang="de">(Platzhalter)</span><span lang="en">(placeholder)</span><br />12045 Berlin-Neukölln</address>
+          </div>
+          <div class="visit-block">
+            <h3><span lang="de">Kontakt</span><span lang="en">Contact</span></h3>
+            <p class="contact-list">
+              <a href="tel:+493000000000">030 0000 0000</a>
+              <a data-wa="4915200000000" data-text-de="Hallo! Zum Abholen bitte: Nr. " data-text-en="Hello! For pickup please: No. " href="https://wa.me/4915200000000?text=Hallo%21%20Zum%20Abholen%20bitte%3A%20Nr.%20" target="_blank" rel="noopener">WhatsApp</a>
+              <a href="mailto:hallo@pho-beispiel.example">hallo@pho-beispiel.example</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <div class="map-card">
+          <svg class="map-pin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <strong><span lang="de">Kartenplatzhalter</span><span lang="en">Map placeholder</span></strong>
+          <span lang="de">Hier kommt die echte Karte hin. Sie lädt erst nach einem Klick, ohne Cookies.</span>
+          <span lang="en">The real map goes here. It loads only after a click, no cookies.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="sticky-bar">
+  <a class="btn btn-primary" href="tel:+493000000000"><span lang="de">Anrufen</span><span lang="en">Call</span></a>
+  <a class="btn btn-ghost" href="#karte"><span lang="de">Karte</span><span lang="en">Menu</span></a>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-mark">Pho Beispiel</p>
+    <p><span lang="de">Demo mit erfundenem Betrieb. Alle Namen, Adressen und Nummern sind Platzhalter.</span><span lang="en">Demo with an invented restaurant. All names, addresses and numbers are placeholders.</span></p>
+    <p class="footer-legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html"><span lang="de">Datenschutz</span><span lang="en">Privacy</span></a><span>&copy; <span data-year>2026</span></span></p>
+  </div>
+</footer>
+
+<script>
+/* Demo site script: language toggle, live open/closed status, prefilled WhatsApp texts.
+   The page reads fine without it (German, static hours). Hours come from the table rows. */
+(function () {
+  var d = document, h = d.documentElement;
+  var T = {
+    de: {
+      open: 'Jetzt geöffnet, bis {t} Uhr', today: 'Geschlossen, öffnet heute um {t} Uhr',
+      tomorrow: 'Geschlossen, öffnet morgen um {t} Uhr', later: 'Geschlossen, öffnet {d} um {t} Uhr',
+      none: 'Gerade geschlossen', toggle: 'EN', toggleLabel: 'Switch to English',
+      days: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']
+    },
+    en: {
+      open: 'Open now, until {t}', today: 'Closed, opens today at {t}',
+      tomorrow: 'Closed, opens tomorrow at {t}', later: 'Closed, opens {d} at {t}',
+      none: 'Closed right now', toggle: 'DE', toggleLabel: 'Auf Deutsch umschalten',
+      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    }
+  };
+  var titleDe = d.title;
+
+  function lang() { return h.getAttribute('data-lang') === 'en' ? 'en' : 'de'; }
+  function fill(s, o) { return s.replace(/\{(\w)\}/g, function (_, k) { return o[k]; }); }
+  function mins(s) { var p = s.split(':'); return Number(p[0]) * 60 + Number(p[1]); }
+
+  function berlinNow() {
+    var parts = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Berlin', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+    }).formatToParts(new Date());
+    var get = function (t) { var p = parts.find(function (x) { return x.type === t; }); return p ? p.value : ''; };
+    var day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+    return { day: day < 0 ? new Date().getDay() : day, m: (Number(get('hour')) % 24) * 60 + Number(get('minute')) };
+  }
+
+  var hours = {};
+  d.querySelectorAll('[data-hours] [data-day]').forEach(function (r) {
+    hours[r.getAttribute('data-day')] = r.hasAttribute('data-open') ? [r.getAttribute('data-open'), r.getAttribute('data-close')] : null;
+  });
+
+  function status() {
+    var now = berlinNow(), t = T[lang()], today = hours[now.day];
+    if (today && now.m >= mins(today[0]) && now.m < mins(today[1])) return { day: now.day, open: true, text: fill(t.open, { t: today[1] }) };
+    if (today && now.m < mins(today[0])) return { day: now.day, open: false, text: fill(t.today, { t: today[0] }) };
+    for (var i = 1; i <= 7; i++) {
+      var n = (now.day + i) % 7;
+      if (!hours[n]) continue;
+      return { day: now.day, open: false, text: fill(i === 1 ? t.tomorrow : t.later, { t: hours[n][0], d: t.days[n] }) };
+    }
+    return { day: now.day, open: false, text: t.none };
+  }
+
+  function render() {
+    var l = lang(), t = T[l];
+    h.lang = l;
+    d.title = l === 'en' && h.getAttribute('data-title-en') ? h.getAttribute('data-title-en') : titleDe;
+    d.querySelectorAll('[data-lang-toggle]').forEach(function (b) {
+      b.textContent = t.toggle;
+      b.setAttribute('aria-label', t.toggleLabel);
+    });
+    d.querySelectorAll('[data-wa]').forEach(function (a) {
+      var text = a.getAttribute('data-text-' + l) || a.getAttribute('data-text-de') || '';
+      a.href = 'https://wa.me/' + a.getAttribute('data-wa') + (text ? '?text=' + encodeURIComponent(text) : '');
+    });
+    if (!Object.keys(hours).length) return;
+    try {
+      var s = status();
+      d.querySelectorAll('[data-status]').forEach(function (p) {
+        p.setAttribute('data-open', String(s.open));
+        p.querySelector('[data-status-text]').textContent = s.text;
+        p.hidden = false;
+      });
+      var row = d.querySelector('[data-hours] [data-day="' + s.day + '"]');
+      if (row) row.classList.add('is-today');
+      var th = hours[s.day];
+      d.querySelectorAll('[data-today-hours]').forEach(function (el) {
+        el.textContent = th ? th[0] + (l === 'en' ? ' to ' : ' bis ') + th[1] : (l === 'en' ? 'Closed today' : 'Heute Ruhetag');
+      });
+    } catch (e) { /* keep the static table */ }
+  }
+
+  d.querySelectorAll('[data-lang-toggle]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var next = lang() === 'en' ? 'de' : 'en';
+      h.setAttribute('data-lang', next);
+      try { localStorage.setItem('lang', next); } catch (e) { /* private mode */ }
+      render();
+    });
+  });
+
+  /* Booking form: builds a WhatsApp message, nothing is stored on a server. */
+  d.querySelectorAll('[data-booking]').forEach(function (f) {
+    var date = f.querySelector('input[type="date"]');
+    if (date) {
+      var today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Berlin' }).format(new Date());
+      date.min = today;
+      if (!date.value) date.value = today;
+    }
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = function (n) { var el = f.querySelector('[name="' + n + '"]:checked') || f.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
+      var p = (v('tag') || '').split('-');
+      var de = p.length === 3 ? p[2] + '.' + p[1] + '.' + p[0] : v('tag');
+      var msg = lang() === 'en'
+        ? 'Hello! I would like to book a table: ' + de + ' at ' + v('uhrzeit') + ', ' + v('personen') + ' people. Name: ' + v('name') + '.'
+        : 'Hallo! Ich möchte einen Tisch reservieren: ' + de + ' um ' + v('uhrzeit') + ' Uhr, ' + v('personen') + ' Personen. Name: ' + v('name') + '.';
+      window.open('https://wa.me/' + f.getAttribute('data-booking') + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+  });
+
+  var y = d.querySelector('[data-year]');
+  if (y) y.textContent = String(new Date().getFullYear());
+
+  render();
+})();
+</script>
+</body>
+</html>

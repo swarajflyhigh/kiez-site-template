@@ -18,7 +18,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 TEMPLATES = {"cafe": HERE, "salon": HERE.parent / "kiez-salon"}
 OUT_ROOT = HERE.parent / "clients"
-SKIP = {"node_modules", "dist", ".git", ".netlify", ".claude"}
+SKIP = {"node_modules", "dist", ".git", ".netlify", ".claude", "demos"}
 DAYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]          # JS weekday order
 DAY_DE = {"sun": "So", "mon": "Mo", "tue": "Di", "wed": "Mi", "thu": "Do", "fri": "Fr", "sat": "Sa"}
 
